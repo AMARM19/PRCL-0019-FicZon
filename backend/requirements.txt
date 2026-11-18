@@ -1,4 +1,4 @@
-# Pinned to the versions the model was trained with (see models/model_metadata.json).
+# Pinned to the versions the model was trained with (see models/model_metadata.json). Needs Python >= 3.12 (xgboost 3.3).
 flask==3.1.2
 gunicorn==23.0.0
 numpy==2.3.5

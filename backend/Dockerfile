@@ -1,5 +1,5 @@
 # Build from the repository root:  docker build -f backend/Dockerfile -t ficzon-api .
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PORT=5000
 WORKDIR /app
