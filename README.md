@@ -11,7 +11,9 @@ The project has the full analysis notebook, a **Flask** REST API, a **Streamlit*
 > shipped. Masked mobile numbers and e-mails are turned into two flags (number given? e-mail provider?) during
 > cleaning and are never stored or sent anywhere.
 
-**Live demo:** not deployed yet.
+**Live demo** (Render free tier; the first visit after ~15 minutes idle takes up to a minute to wake up):
+- UI: https://ficzon-lead-ui.onrender.com
+- API: https://ficzon-lead-api.onrender.com/health
 
 ## Problem
 
@@ -159,14 +161,14 @@ UI → http://localhost:8501 · API → http://localhost:5000/health
 
 ## 4. Deploy to Render (free tier)
 
-1. Push this folder to a GitHub repository. `.gitignore` keeps `Data/`, all CSVs (except
+1. Push this folder to a GitHub repository (this one: https://github.com/AMARM19/PRCL-0019-FicZon). `.gitignore` keeps `Data/`, all CSVs (except
    `models/model_comparison.csv`) and the PDF brief out of git.
 2. On Render: **New → Blueprint**, then pick the repo. `render.yaml` creates two Docker web services:
    `ficzon-lead-api` (Flask + gunicorn) and `ficzon-lead-ui` (Streamlit).
 3. If Render gives the API a different URL, update `BACKEND_URL` on `ficzon-lead-ui` to match it.
 4. Free services sleep after 15 minutes idle, so the first request takes about 30–60 seconds.
 
-The API image uses `xgboost-cpu` (no CUDA libraries), so it stays small and well under the free tier's 512 MB.
+The API image runs Python 3.12 (needed by XGBoost 3.3) and uses `xgboost-cpu` (no CUDA libraries), so it stays small and well under the free tier's 512 MB.
 
 ## API
 
