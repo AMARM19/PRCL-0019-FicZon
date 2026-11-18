@@ -1,0 +1,10 @@
+# Pinned to the versions the model was trained with (see models/model_metadata.json).
+flask==3.1.2
+gunicorn==23.0.0
+numpy==2.3.5
+pandas==2.3.3
+scipy==1.16.3
+scikit-learn==1.7.2
+joblib==1.5.2
+# CPU-only XGBoost build (same 'xgboost' module, no ~200 MB CUDA/NCCL dependency)
+xgboost-cpu==3.3.0

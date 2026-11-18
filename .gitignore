@@ -1,0 +1,17 @@
+# CLIENT DATA: never commit raw or row-level data
+Data/
+*.csv
+!models/model_comparison.csv
+*.xlsx
+scored_leads*.csv
+
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+.env
+.claude/
+
+# Institute brief (confidential, contains a database login): never commit
+*.pdf

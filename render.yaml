@@ -1,0 +1,24 @@
+# Render Blueprint: New > Blueprint > pick this repo. Creates two free Docker web services.
+# After the first deploy, set BACKEND_URL on the UI service to the API's public URL
+# (e.g. https://ficzon-lead-api.onrender.com) if Render assigned a different name.
+# Only code + the trained model are built into the images (see .dockerignore); no client data.
+services:
+  - type: web
+    name: ficzon-lead-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+
+  - type: web
+    name: ficzon-lead-ui
+    runtime: docker
+    plan: free
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: .
+    autoDeploy: true
+    envVars:
+      - key: BACKEND_URL
+        value: https://ficzon-lead-api.onrender.com

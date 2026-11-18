@@ -1,0 +1,12 @@
+# Only code + trained model go into images. Never the client data.
+Data/
+**/*.csv
+notebooks/
+reports/
+tests/
+**/__pycache__
+**/.ipynb_checkpoints
+.git
+.env
+*.md
+*.pdf
